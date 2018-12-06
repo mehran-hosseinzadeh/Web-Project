@@ -15,7 +15,7 @@ export default class NewsBox extends Component {
             {
                 title: 'محمدرضا',
                 date: '25/2/1397',
-                description: 'علیکم السلام',
+                description: 'علیکم السلام به به',
                 image: 'camels.jpg'
             },
         ],
