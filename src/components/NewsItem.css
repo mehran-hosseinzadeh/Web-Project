@@ -3,10 +3,8 @@
     display: flex;
     margin: 0.5vw;
     height: 150px;
-    border-width: 1px;
-    border-style: solid;
     padding: 1px;
-    border-color: lightgray;
+    border: 1px solid lightgray;
 }
 
 .newsImage{

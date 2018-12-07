@@ -1,0 +1,30 @@
+*{
+    box-sizing: border-box;
+}
+
+.pageHeader{
+    direction: ltr;
+    margin: 0;
+    background-color: HoneyDew;
+    max-height: 100px;
+}
+
+.pageLogo{
+    padding: 10px;
+    max-height: 80px;
+}
+.pageHeaderOption li{
+    display: inline;
+    font-size: 1.5em;
+    color: white;
+    font-weight: bold;
+    margin: 20px;
+}
+
+.pageHeaderOption{
+    box-sizing: border-box;
+    margin: 0;
+    min-height: 50px;
+    direction: ltr;
+    background-color: dimgray;
+}
