@@ -1,8 +1,8 @@
 .news {
     width: 60vw;
     display: flex;
-    margin: 1vw;
-    height: 25vh;
+    margin: 0.5vw;
+    height: 150px;
     border-width: 1px;
     border-style: solid;
     padding: 1px;
@@ -10,15 +10,15 @@
 }
 
 .newsImage{
-    height: 100%;
+    height: 150px;
     /*min-width: 12vw;*/
     width: 20%;
 }
 
 .newsHeader{
     position: relative;
-    height: 20%;
-    min-width: 80%;
+    height: 40px;
+    width: 100%;
     margin: 0;
     background-color: cornflowerblue;
 }
@@ -33,13 +33,14 @@
 
 .newsTitle{
     display: inline;
+    margin: 0;
 }
 
 .newsDescription{
-    /*box-sizing: border-box;*/
+    box-sizing: border-box;
     overflow: hidden;
     margin: 0 3% 0 1%;
-    height: 80%;
+    height: 110px;
     min-width: 80%;
     text-overflow: ellipsis;
     text-align: justify;
