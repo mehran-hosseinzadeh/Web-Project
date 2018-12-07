@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import NewsBox from "./components/NewsBox";
@@ -10,8 +10,10 @@ class App extends Component {
         return (
             <div>
                 <PageHeader/>
-                <NewsBox/>
-                <MatchBox/>
+                <div className='main'>
+                    <NewsBox/>
+                    <MatchBox/>
+                </div>
             </div>
         );
     }
