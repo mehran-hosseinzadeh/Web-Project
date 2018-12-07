@@ -4,10 +4,10 @@ import "./PageHeader.css"
 export default class PageHeader extends Component {
     static defaultProps = {
         optionsItem: [
-            "home",
-            "basketball",
-            "football",
-            "others",],
+            "خانه",
+            "بسکتبال",
+            "فوتبال",
+            "سایر اخبار",],
     };
 
     render() {
