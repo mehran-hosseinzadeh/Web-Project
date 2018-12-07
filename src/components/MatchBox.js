@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import MatchItem from "./MatchItem";
 import MatchTitle from "./MatchTitle";
-
-;
+import './MatchBox.css';
 
 export default class MatchBox extends Component {
 
@@ -10,10 +9,10 @@ export default class MatchBox extends Component {
         footballMatches: [
             {
                 dateTime: '25/2/1397',
-                team1: "Dafsgd",
-                team2: "FDShgfds",
-                result: "121 - e324",
-                status: " estger"
+                team1: "استقلال",
+                team2: "پرسپولیس",
+                result: "0-2",
+                status: " نهایی"
             },
         ],
         footballTitle: "فوتبال"
@@ -27,9 +26,9 @@ export default class MatchBox extends Component {
 
     render() {
         return (
-            <aside>
+            <aside className='matchBox'>
                 <MatchTitle title={this.props.footballTitle}/>
-                <ul>
+                <ul className='matches'>
                     {this.showMatches()}
                 </ul>
             </aside>

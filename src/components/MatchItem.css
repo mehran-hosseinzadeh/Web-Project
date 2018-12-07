@@ -1,0 +1,39 @@
+.matchItem {
+    border-style: solid;
+    border-width: 1px;
+    display: flex;
+    flex-direction: row;
+    height: 30px;
+    position: relative;
+}
+
+.matchDateTime {
+    position: absolute;
+    right: 10px;
+}
+
+.matchStatus {
+    position: absolute;
+    right: 150px;
+}
+
+.matchDesc{
+    position: absolute;
+    right: 200px;
+}
+
+/*.matchTeam1 {*/
+    /*position: absolute;*/
+    /*right: 10px;*/
+/*}*/
+
+/*.matchResult {*/
+    /*position: absolute;*/
+    /*right: 50px;*/
+/*}*/
+
+/*.matchTeam2 {*/
+    /*position: absolute;*/
+    /*right: 10px;*/
+/*}*/
+

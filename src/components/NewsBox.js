@@ -30,9 +30,9 @@ export default class NewsBox extends Component {
 
     render() {
         return (
-            <main>
+            <main className='newsBox'>
                 <NewsCategory title={this.props.footballTitle}/>
-                <ul>
+                <ul className='newsSection'>
                     {this.showNews()}
                 </ul>
             </main>

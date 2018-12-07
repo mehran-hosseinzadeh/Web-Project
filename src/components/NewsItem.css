@@ -3,8 +3,11 @@
     display: flex;
     margin: 0.5vw;
     height: 150px;
+    border-width: 1px;
+    border-style: solid;
     padding: 1px;
-    border: 1px solid lightgray;
+    border-color: lightgray;
+    list-style-type: none;
 }
 
 .newsImage{
@@ -24,7 +27,7 @@
 .newsDate{
     right: 0;
     padding-right: 5%;
-    display: inline;
+    display: inline-block;
     color: grey;
     position: absolute;
 }
