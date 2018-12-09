@@ -7,19 +7,23 @@
 }
 
 .pageLogo {
-    padding: 10px;
-    max-height: 80px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    margin-left: 30px;
+    max-height: 120px;
 }
 
 .pageHeaderOption li {
     display: inline;
     font-size: 1.2em;
     padding: 10px;
+    background-color: gainsboro;
     line-height: 50px;
 }
 
 .pageHeaderOption {
     box-sizing: border-box;
+    /*width: fit-content;*/
     margin: 0;
     overflow: hidden;
     background-color: darkslategray;
