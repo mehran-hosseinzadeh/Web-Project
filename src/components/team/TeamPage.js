@@ -28,18 +28,18 @@ export default class TeamPage extends Component {
             {name: "علی علوی", post: "مدافع", age: "23"},
         ],
         filters: [
-            { key: 'مدافع', text: 'مدافع', value: 'مدافع' },
-            { key: 'مهاجم', text: 'مهاجم', value: 'مهاجم' },
-            { key: 'هافبک', text: 'هافبک', value: 'هافبک' },
+            {key: 'مدافع', text: 'مدافع', value: 'مدافع'},
+            {key: 'مهاجم', text: 'مهاجم', value: 'مهاجم'},
+            {key: 'هافبک', text: 'هافبک', value: 'هافبک'},
         ],
         matchFilters: [
-            { key: 'برد', text: 'برد', value: 'برد' },
-            { key: 'مساوی', text: 'مساوی', value: 'مساوی' },
-            { key: 'باخت', text: 'باخت', value: 'باخت' },
-            { key: 'تاریخ صعودی', text: 'تاریخ صعودی', value: 'تاریخ صعودی' },
-            { key: 'تاریخ نزولی', text: 'تاریخ نزولی', value: 'تاریخ نزولی' },
-            { key: 'امتیاز صعودی', text: 'امتیاز صعودی', value: 'امتیاز صعودی' },
-            { key: 'امتیاز نزولی', text: 'امتیاز نزولی', value: 'امتیاز نزولی' },
+            {key: 'برد', text: 'برد', value: 'برد'},
+            {key: 'مساوی', text: 'مساوی', value: 'مساوی'},
+            {key: 'باخت', text: 'باخت', value: 'باخت'},
+            {key: 'تاریخ صعودی', text: 'تاریخ صعودی', value: 'تاریخ صعودی'},
+            {key: 'تاریخ نزولی', text: 'تاریخ نزولی', value: 'تاریخ نزولی'},
+            {key: 'امتیاز صعودی', text: 'امتیاز صعودی', value: 'امتیاز صعودی'},
+            {key: 'امتیاز نزولی', text: 'امتیاز نزولی', value: 'امتیاز نزولی'},
         ],
         matches: [
             {rival: "سپاهان", result: " برد", scores: "3 - 1", date: "1397/11/22"},
@@ -85,7 +85,7 @@ export default class TeamPage extends Component {
                 <Segment>
                     <Grid columns={16} divided>
                         <Grid.Row stretched>
-                            <Grid.Column width={3} >
+                            <Grid.Column width={3}>
                                 {this.showLeagueTable()}
                                 <Divider/>
                                 {this.showTeamMemberTable()}
@@ -102,14 +102,14 @@ export default class TeamPage extends Component {
         );
     };
 
-    showMatches(){
-        return(
+    showMatches() {
+        return (
             [
                 <Header as='h2' className="center aligned" icon>
                     <Icon name="baseball ball"/>
                     لیست بازی ها
                 </Header>,
-                <Select placeholder='Filter By' options={this.props.matchFilters} />,
+                <Select placeholder='Filter By' options={this.props.matchFilters}/>,
                 <Table>
                     <Table.Header>
                         <Table.Row>
@@ -135,6 +135,7 @@ export default class TeamPage extends Component {
             ]
         )
     }
+
     showLeagueTable() {
         return (
             [<Header as='h3' className="center aligned">
@@ -173,7 +174,7 @@ export default class TeamPage extends Component {
                 <Header as='h3' className="center aligned">
                     فهرست اعضای تیم
                 </Header>,
-                <Select placeholder='Filter By' options={this.props.filters} />,
+                <Select placeholder='Filter By' options={this.props.filters}/>,
                 <Table>
                     <Table.Header>
                         <Table.Row>

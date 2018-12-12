@@ -1,0 +1,39 @@
+.playerStats {
+    width: 38%;
+    float: right;
+    display: table-cell;
+    margin-top: 2%;
+}
+
+.ui.grid > .stretched.twelve.wide.column {
+    width: 70% !important;
+}
+
+.ui.grid > .four.wide.column {
+    width: 30% !important;
+}
+
+.ui.grid > .four.wide.column > .ui.vertical.menu {
+    width: 100%;
+}
+
+.stretched.twelve.wide.column {
+    height: 100%;
+}
+
+.stretched.twelve.wide.column ul {
+    font-size: medium;
+}
+
+.ui.segment.active.tab {
+    height: 100%;
+}
+
+.ui.grid {
+    width: inherit;
+}
+
+.playerStats > div {
+    height: 200px;
+    width: 100%;
+}

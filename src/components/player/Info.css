@@ -1,0 +1,22 @@
+.playerInfo {
+    float: right;
+    width: 60%;
+    display: table-cell;
+    margin-top: 2%;
+}
+
+.main-player .image img {
+    max-width: 100%;
+}
+
+.main-player .item .content{
+    font-size: large;
+}
+.main-player .item .extra .ui.label{
+    font-size: small;
+}
+
+.main-player .content .meta .personalInfo {
+    list-style-type: none;
+}
+

@@ -35,3 +35,17 @@
   display: flex;
   flex-direction: row;
 }
+
+.main-news{
+}
+
+.main-player .playerDetails{
+    margin-right: 2%;
+    margin-left: 2%;
+    width: 100vw;
+    display: table;
+}
+
+.main-player{
+    height: 100vh;
+}

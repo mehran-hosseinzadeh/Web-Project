@@ -1,0 +1,27 @@
+.newsCommentSection{
+    margin-right: 2%;
+    border-style: solid;
+    border-width: 2px;
+    width: 50vw;
+}
+
+.ui.dividing.header{
+    padding: 2% 2% 0 0;
+    font-family: B Nazanin, serif;
+    margin: 0;
+    width: calc(50vw - 3%);
+}
+
+.newsComment{
+    padding: 2% 2% 0 0;
+    margin: 0;
+    /*background-color: aqua;*/
+    width: calc(50vw - 2%);
+    text-align: justify;
+}
+
+.newsDivider{
+    border: none;
+    height: 1px;
+    background-color: black;
+}

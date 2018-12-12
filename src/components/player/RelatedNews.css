@@ -1,0 +1,19 @@
+.playerRelatedNews{
+    text-align: justify;
+}
+
+.playerRelatedNews{
+    margin-top: 5%;
+    list-style-type: none;
+}
+.playerRelatedNews .relatedNewsBody::after{
+    content: "...."
+}
+
+.ui.grid{
+    width: inherit;
+}
+
+.playerRelatedNews li{
+    margin-bottom: 2%;
+}
