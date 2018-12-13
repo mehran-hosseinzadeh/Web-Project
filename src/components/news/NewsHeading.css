@@ -1,0 +1,8 @@
+.newsHeading{
+    margin-right: 2%;
+    margin-top: 2%;
+}
+
+.newsHeading .sub.header{
+    color: grey !important;
+}

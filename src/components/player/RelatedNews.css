@@ -1,0 +1,18 @@
+.main-player .playerRelatedNews{
+    text-align: justify;
+}
+
+.main-player .playerRelatedNews{
+    margin-top: 5%;
+}
+.main-player .playerRelatedNews .relatedNewsBody::after{
+    content: "...."
+}
+
+.main-player .ui.grid{
+    width: inherit;
+}
+
+.main-player .playerRelatedNews li{
+    margin-bottom: 2%;
+}

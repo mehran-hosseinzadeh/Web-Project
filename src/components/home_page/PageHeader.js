@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import "./PageHeader.css"
-import {Input, Menu } from 'semantic-ui-react'
+import {Input, Menu} from 'semantic-ui-react'
 
 const colorsB = ['blue', 'violet', 'purple', 'pink', 'brown'];
 
@@ -47,7 +47,7 @@ export default class PageHeader extends Component {
 
                     <Menu.Menu position='right'>
                         <Menu.Item style={{minWidth: "400px"}}>
-                            <Input icon='search' placeholder='...جست و جو'  />
+                            <Input icon="search" placeholder='...جست و جو'  />
                         </Menu.Item>
                         <Menu.Item
                             name='خروج'

@@ -1,0 +1,17 @@
+.metadata {
+    margin-right: 1%;
+}
+
+.text {
+    width: 95%;
+}
+
+.avatar {
+    width: 10% !important;
+}
+
+.comment {
+    overflow-y: auto;
+    height: 100px;
+    font-size: 15px;
+}

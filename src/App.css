@@ -18,6 +18,14 @@
     color: white;
 }
 
+ul{
+    list-style-type: none;
+}
+
+th, td{
+    text-align: center !important;
+}
+
 .App-link {
     color: #61dafb;
 }
@@ -34,4 +42,16 @@
 .main{
   display: flex;
   flex-direction: row;
+}
+
+
+.main-player .playerDetails{
+    margin-right: 2%;
+    margin-left: 2%;
+    width: 100vw;
+    display: table;
+}
+
+.main-player{
+    height: 100vh;
 }

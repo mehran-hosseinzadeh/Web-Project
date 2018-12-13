@@ -1,0 +1,8 @@
+.formation th, .formation td{
+    text-align: center !important;
+    font-size: smaller;
+}
+
+.teamTitle{
+    text-align: center;
+}
