@@ -25,7 +25,7 @@ class App extends Component {
         return (
             <div>
                 <PageHeader className='row'/>
-                <PlayerPage/>
+                <GamePage/>
             </div>
         )
     }

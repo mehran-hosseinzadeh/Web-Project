@@ -1,0 +1,13 @@
+.main-game{
+    margin: 2%;
+}
+
+.main-game:nth-child(2){
+}
+
+.test{
+    margin-right: inherit;
+    width: 500px;
+    height: 200px;
+    background-color: red;
+}

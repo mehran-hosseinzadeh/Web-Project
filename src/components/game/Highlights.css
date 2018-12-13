@@ -1,0 +1,21 @@
+.timeline{
+    direction: ltr;
+}
+
+.timeline>.ui.grid{
+    direction: rtl;
+}
+
+.timeline{
+    margin: 0 auto;
+}
+
+.Timeline-line{
+    top: 0 !important;
+    margin-top: 0 !important;
+    height: 100% !important;
+}
+
+.timeline *{
+    text-align: center;
+}

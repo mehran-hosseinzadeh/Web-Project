@@ -4,8 +4,10 @@ import './Report.css'
 class Report extends Component{
     render() {
         return(
-            <div>
-
+            <div className='gameReport'>
+                <h1>
+                    گزارش لحظه ای بازی:
+                </h1>
             </div>
         )
     }
