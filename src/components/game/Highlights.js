@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import './Highlights.css'
 import Timeline from 'react-timeline-semantic-ui'
 import {Grid} from "semantic-ui-react";
-import Stats from "./Stats";
 
 class Highlights extends Component {
 
@@ -78,7 +77,7 @@ class Highlights extends Component {
                 (highlight.description === 'کارت')
                     ? ((highlight.color === 'زرد') ? 'yellow' : 'red') :
                     (highlight.description === 'پنالتی') ? 'blue'
-                        : (highlight.description === 'تعویض') ? 'grey'
+                        : (highlight.description === 'تعویض') ? 'orange'
                         : '';
             const title = (highlight.description === 'گل')
                 ? highlight.byPlayer :
@@ -108,19 +107,19 @@ class Highlights extends Component {
     render() {
         return (
             <div className='timeline'>
-                <Grid>
-                    <Grid.Column width={8}>
-                        <h1 className='timelineTitle'>
-                            {this.props.teams[0]}
-                        </h1>
-                    </Grid.Column>
-                    <Grid.Column width={8}>
-                        <h1 className='timelineTitle'>
-                            {this.props.teams[1]}
-                        </h1>
-                    </Grid.Column>
-                </Grid>
-                {this.showTimeline()};
+                    <Grid>
+                        <Grid.Column width={8}>
+                            <h1 className='timelineTitle'>
+                                {this.props.teams[0]}
+                            </h1>
+                        </Grid.Column>
+                        <Grid.Column width={8}>
+                            <h1 className='timelineTitle'>
+                                {this.props.teams[1]}
+                            </h1>
+                        </Grid.Column>
+                    </Grid>
+                {this.showTimeline()}
             </div>
         )
     }

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Divider, Grid, Header, Image, Segment, Select, Table} from "semantic-ui-react";
 import Icon from "semantic-ui-react/dist/commonjs/elements/Icon/Icon";
+import RelatedNews from "./RelatedNews";
 
 export default class TeamPage extends Component {
 
@@ -68,7 +69,8 @@ export default class TeamPage extends Component {
 
     render() {
         return (
-            [<Segment centered>
+            <div className='main-team'>
+            <Segment centered>
                 <Image
                     className="row"
                     centered
@@ -81,7 +83,7 @@ export default class TeamPage extends Component {
                     استقلال تهران
                     <Header.Subheader>تیم آبی پایتخت</Header.Subheader>
                 </Header>
-            </Segment>,
+            </Segment>
                 <Segment>
                     <Grid columns={16} divided>
                         <Grid.Row stretched>
@@ -90,15 +92,20 @@ export default class TeamPage extends Component {
                                 <Divider/>
                                 {this.showTeamMemberTable()}
                             </Grid.Column>
-                            <Grid.Column width={9} style={{backgroundColor: "khaki"}}>
-
+                            <Grid.Column width={9}>
+                                <Segment style={{backgroundColor: "ghostWhite"}}>
+                                    <RelatedNews/>
+                                </Segment>
                             </Grid.Column>
-                            <Grid.Column width={4} style={{backgroundColor: "darkkhaki"}}>
-                                {this.showMatches()}
+                            <Grid.Column width={4}>
+                                <Segment style={{backgroundColor: "ghostWhite"}}>
+                                    {this.showMatches()}
+                                </Segment>
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>
-                </Segment>]
+                </Segment>
+            </div>
         );
     };
 

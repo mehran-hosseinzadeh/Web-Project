@@ -18,6 +18,14 @@
     color: white;
 }
 
+ul{
+    list-style-type: none;
+}
+
+th, td{
+    text-align: center !important;
+}
+
 .App-link {
     color: #61dafb;
 }
@@ -36,8 +44,6 @@
   flex-direction: row;
 }
 
-.main-news{
-}
 
 .main-player .playerDetails{
     margin-right: 2%;

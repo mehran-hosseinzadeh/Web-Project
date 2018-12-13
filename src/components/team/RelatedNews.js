@@ -49,7 +49,7 @@ class RelatedNews extends Component {
 
     render() {
         return (
-            <ul className='gameRelatedNews'>
+            <ul className='teamRelatedNews'>
                 {this.showAllNews()}
             </ul>
         )
