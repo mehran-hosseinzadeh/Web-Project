@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Tab, Table} from 'semantic-ui-react';
+import {Table} from 'semantic-ui-react';
 import './Stats.css'
 
 class Stats extends Component {

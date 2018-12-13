@@ -1,0 +1,22 @@
+.main-team .teamRelatedNews{
+    text-align: justify;
+}
+
+.main-team .teamRelatedNews{
+    margin-top: 5%;
+}
+.main-team .teamRelatedNews .relatedNewsBody::after{
+    content: "...."
+}
+
+.main-team .ui.grid{
+    width: inherit;
+}
+
+.main-team .teamRelatedNews li{
+    margin-bottom: 2%;
+}
+
+.main-team .relatedNews{
+    margin-top: 100% !important;
+}

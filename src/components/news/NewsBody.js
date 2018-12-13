@@ -12,18 +12,12 @@ class NewsBody extends Component {
     render() {
         return (
             <div className='newsBody'>
-                <Grid>
-                    <Grid.Column width={4}>
-                        <Image src={this.props.newsImage} rounded/>
-                    </Grid.Column>
-                    <Grid.Column width={4}>
-                        <Container>
-                            <p>
-                                {this.props.newsBody}
-                            </p>
-                        </Container>
-                    </Grid.Column>
-                </Grid>
+                <Image src={this.props.newsImage} rounded/>
+                <Container>
+                    <p>
+                        {this.props.newsBody}
+                    </p>
+                </Container>
             </div>
         )
     }

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Grid} from "semantic-ui-react";
 import './PlayerPage.css'
 import Info from "./Info";
 import Stats from "./Stats";

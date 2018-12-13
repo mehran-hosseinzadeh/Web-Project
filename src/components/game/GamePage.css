@@ -2,12 +2,35 @@
     margin: 2%;
 }
 
-.main-game:nth-child(2){
+.main-game .gameRelatedNews{
+    width: 320% !important;
+    margin-right: 1%;
 }
 
-.test{
-    margin-right: inherit;
-    width: 500px;
-    height: 200px;
-    background-color: red;
+.main-game .gameMedia{
+    width: 320% !important;
+    margin-right: 1%;
+}
+
+.main-game .gameRelatedNews{
+    text-align: justify;
+}
+
+.main-game .gameRelatedNews{
+    margin-top: 5%;
+}
+.main-game .gameRelatedNews .relatedNewsBody::after{
+    content: "...."
+}
+
+.main-game .ui.grid{
+    width: inherit;
+}
+
+.main-game .gameRelatedNews li{
+    margin-bottom: 2%;
+}
+
+.main-game .relatedNews{
+    margin-top: 100% !important;
 }

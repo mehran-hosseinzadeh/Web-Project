@@ -1,19 +1,18 @@
-.playerRelatedNews{
+.main-player .playerRelatedNews{
     text-align: justify;
 }
 
-.playerRelatedNews{
+.main-player .playerRelatedNews{
     margin-top: 5%;
-    list-style-type: none;
 }
-.playerRelatedNews .relatedNewsBody::after{
+.main-player .playerRelatedNews .relatedNewsBody::after{
     content: "...."
 }
 
-.ui.grid{
+.main-player .ui.grid{
     width: inherit;
 }
 
-.playerRelatedNews li{
+.main-player .playerRelatedNews li{
     margin-bottom: 2%;
 }

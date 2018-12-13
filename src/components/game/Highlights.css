@@ -13,7 +13,9 @@
 .Timeline-line{
     top: 0 !important;
     margin-top: 0 !important;
-    height: 100% !important;
+    margin-bottom: 0 !important;
+    width: 3px !important;
+    height: content-box !important;
 }
 
 .timeline *{
