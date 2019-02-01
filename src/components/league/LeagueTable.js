@@ -1,6 +1,6 @@
 import _ from 'lodash'
-import React, { Component } from 'react'
-import { Table } from 'semantic-ui-react'
+import React, {Component} from 'react'
+import {Divider, Header, Image, Table} from 'semantic-ui-react'
 
 const tableData = [
     {gameNumber: 1, team1: "استقلال", team2: "سپاهان", result: "2 - 1", team1Point: "43", team2Point: "23"},
@@ -27,7 +27,7 @@ export default class LeagueTable extends Component {
     };
 
     handleSort = clickedColumn => () => {
-        const { column, data, direction } = this.state;
+        const {column, data, direction} = this.state;
 
         if (column !== clickedColumn) {
             this.setState({
@@ -45,60 +45,68 @@ export default class LeagueTable extends Component {
     };
 
     render() {
-        const { column, data, direction } = this.state;
+        const {column, data, direction} = this.state;
 
         return (
-            <Table sortable celled style={{direction: "ltr"}}>
-                <Table.Header>
-                    <Table.Row>
-                        <Table.HeaderCell
-                            sorted={column === 'gameNumber' ? direction : null}
-                            onClick={this.handleSort('gameNumber')}
-                        >
-                            Game Number
-                        </Table.HeaderCell>
-                        <Table.HeaderCell
-                            sorted={column === 'team1' ? direction : null}
-                            onClick={this.handleSort('team1')}
-                        >
-                            First Team
-                        </Table.HeaderCell>
-                        <Table.HeaderCell
-                            sorted={column === 'team2' ? direction : null}
-                            onClick={this.handleSort('team2')}
-                        >
-                            Second Team
-                        </Table.HeaderCell>
-                        <Table.HeaderCell
-                            sorted={column === 'result' ? direction : null}
-                        >
-                            Result
-                        </Table.HeaderCell>
-                        <Table.HeaderCell
-                            sorted={column === 'team1Point' ? direction : null}
-                        >
-                            First Team Point
-                        </Table.HeaderCell>
-                        <Table.HeaderCell
-                            sorted={column === 'team2Point' ? direction : null}
-                        >
-                            Second Team Point
-                        </Table.HeaderCell>
-                    </Table.Row>
-                </Table.Header>
-                <Table.Body>
-                    {_.map(data, ({ gameNumber, team1, team2, result, team1Point, team2Point }) => (
-                        <Table.Row key={gameNumber}>
-                            <Table.Cell>{gameNumber}</Table.Cell>
-                            <Table.Cell>{team1}</Table.Cell>
-                            <Table.Cell>{team2}</Table.Cell>
-                            <Table.Cell>{result}</Table.Cell>
-                            <Table.Cell>{team1Point}</Table.Cell>
-                            <Table.Cell>{team2Point}</Table.Cell>
+            [
+                <Header as='h3' className="center aligned">
+                    <Image src="http://www.varzesh11.com/images/user/post/138283_991577854.jpg"/>
+                    <br/>
+                    لیگ برتر خلیج فارس
+                </Header>,
+                <Table sortable celled style={{direction: "ltr"}}>
+                    <Table.Header>
+                        <Table.Row>
+                            <Table.HeaderCell
+                                sorted={column === 'gameNumber' ? direction : null}
+                                onClick={this.handleSort('gameNumber')}
+                            >
+                                Game Number
+                            </Table.HeaderCell>
+                            <Table.HeaderCell
+                                sorted={column === 'team1' ? direction : null}
+                                onClick={this.handleSort('team1')}
+                            >
+                                First Team
+                            </Table.HeaderCell>
+                            <Table.HeaderCell
+                                sorted={column === 'team2' ? direction : null}
+                                onClick={this.handleSort('team2')}
+                            >
+                                Second Team
+                            </Table.HeaderCell>
+                            <Table.HeaderCell
+                                sorted={column === 'result' ? direction : null}
+                            >
+                                Result
+                            </Table.HeaderCell>
+                            <Table.HeaderCell
+                                sorted={column === 'team1Point' ? direction : null}
+                            >
+                                First Team Point
+                            </Table.HeaderCell>
+                            <Table.HeaderCell
+                                sorted={column === 'team2Point' ? direction : null}
+                            >
+                                Second Team Point
+                            </Table.HeaderCell>
                         </Table.Row>
-                    ))}
-                </Table.Body>
-            </Table>
+                    </Table.Header>
+                    <Table.Body>
+                        {_.map(data, ({gameNumber, team1, team2, result, team1Point, team2Point}) => (
+                            <Table.Row key={gameNumber}>
+                                <Table.Cell>{gameNumber}</Table.Cell>
+                                <Table.Cell>{team1}</Table.Cell>
+                                <Table.Cell>{team2}</Table.Cell>
+                                <Table.Cell>{result}</Table.Cell>
+                                <Table.Cell>{team1Point}</Table.Cell>
+                                <Table.Cell>{team2Point}</Table.Cell>
+                            </Table.Row>
+                        ))}
+                    </Table.Body>
+                </Table>,
+                <Divider/>
+            ]
         )
     }
 }
