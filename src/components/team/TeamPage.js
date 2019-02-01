@@ -29,6 +29,8 @@ export default class TeamPage extends Component {
             {name: "علی علوی", post: "مدافع", age: "23"},
         ],
         filters: [
+            {key: 'همه', text: 'همه', value: 'همه'},
+            {key: 'دروازه بان', text: 'دروازه بان', value: 'دروازه بان'},
             {key: 'مدافع', text: 'مدافع', value: 'مدافع'},
             {key: 'مهاجم', text: 'مهاجم', value: 'مهاجم'},
             {key: 'هافبک', text: 'هافبک', value: 'هافبک'},
@@ -66,7 +68,6 @@ export default class TeamPage extends Component {
             {rival: "ذوب آهن", result: " برد", scores: "3 - 1", date: "1397/11/22"},
         ]
     };
-
     render() {
         return (
             <div className='main-team'>
@@ -153,7 +154,7 @@ export default class TeamPage extends Component {
                 <Table>
                     <Table.Header>
                         <Table.Row>
-                            <Table.HeaderCell></Table.HeaderCell>
+                            <Table.HeaderCell/>
                             <Table.HeaderCell>نام</Table.HeaderCell>
                             <Table.HeaderCell>بازی</Table.HeaderCell>
                             <Table.HeaderCell>امتیاز</Table.HeaderCell>
@@ -175,13 +176,31 @@ export default class TeamPage extends Component {
         )
     }
 
+    handleChange = (e, { value }) => {
+        this.setState({ value });
+        if (value === "همه"){
+            filterTeamMember = this.props.teamMember
+        }
+        else {
+            filterTeamMember = [];
+            this.props.teamMember.forEach((data) => {
+                if (data.post === value){
+                    filterTeamMember.push(data)
+                }
+            })
+        }
+    };
+
     showTeamMemberTable() {
         return (
             [
                 <Header as='h3' className="center aligned">
                     فهرست اعضای تیم
                 </Header>,
-                <Select placeholder='Filter By' options={this.props.filters}/>,
+                <Select
+                    placeholder='Filter By'
+                    options={this.props.filters}
+                    onChange={this.handleChange}/>,
                 <Table>
                     <Table.Header>
                         <Table.Row>
@@ -191,7 +210,7 @@ export default class TeamPage extends Component {
                         </Table.Row>
                     </Table.Header>
                     <Table.Body>
-                        {this.props.teamMember.map((data) => {
+                        {filterTeamMember.map((data) => {
                             return (
                                 <Table.Row>
                                     <Table.Cell>{data.name}</Table.Cell>
@@ -206,3 +225,4 @@ export default class TeamPage extends Component {
         )
     }
 }
+let filterTeamMember = TeamPage.defaultProps.teamMember;
