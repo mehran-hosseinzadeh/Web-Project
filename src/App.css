@@ -55,3 +55,7 @@ th, td{
 .main-player{
     height: 100vh;
 }
+
+.ui.inverted.menu{
+    margin-bottom: 2% !important;
+}

@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-import './RelatedNews.css'
-import {Container, Grid, Header, Image} from "semantic-ui-react";
+import {Grid} from "semantic-ui-react";
+import {Container, Image} from "semantic-ui-react";
+import {Header} from "semantic-ui-react";
 
-
-class RelatedNews extends Component {
-
+class MainNews extends Component{
     static defaultProps = {
         allNews: [
             {
@@ -22,15 +21,15 @@ class RelatedNews extends Component {
         ]
     };
 
-    showAllNews() {
+    showMainNews() {
         return this.props.allNews.map((news, index) => {
             return (
                 <li className={'news' + index}>
                     <Grid>
-                        <Grid.Column width={2}>
+                        <Grid.Column width={4}>
                             <Image src={news.newsImage} rounded/>
                         </Grid.Column>
-                        <Grid.Column width={4}>
+                        <Grid.Column width={10}>
                             <Header as='h4'>
                                 {news.newsTitle}
                                 <Header.Subheader>{news.newsDate}</Header.Subheader>
@@ -49,14 +48,11 @@ class RelatedNews extends Component {
 
     render() {
         return (
-            <ul className='playerRelatedNews'>
-                <h1>
-                    اخبار مرتبط:
-                </h1>
-                {this.showAllNews()};
+            <ul className='mainNews'>
+                {this.showMainNews()}
             </ul>
         )
     }
 }
 
-export default RelatedNews
+export default MainNews;

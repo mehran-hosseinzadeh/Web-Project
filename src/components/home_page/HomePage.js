@@ -1,14 +1,16 @@
 import React, {Component} from 'react';
-import {Divider, Tab, Menu, Grid, Header, Image, Segment, Select, Table, Label, Icon} from "semantic-ui-react";
+import {Grid, Header, Segment, Select, Tab, Table} from "semantic-ui-react";
+import MainNews from "./MainNews";
+import './HomePage.css'
 
 const panes = [
     {
         menuItem: {key: 'favorite', icon: 'like', content: 'موردعلاقه ها'},
-        render: () => <Tab.Pane>Tab 1 Content</Tab.Pane>,
+        render: () => <Tab.Pane><MainNews/></Tab.Pane>,
     },
     {
         menuItem: {key: 'آخرین ها', icon: 'browser', content: 'آخرین ها'},
-        render: () => <Tab.Pane>Tab 1 Content</Tab.Pane>,
+        render: () => <Tab.Pane><MainNews/></Tab.Pane>,
     },
 ];
 const matches = [
@@ -24,7 +26,6 @@ const matches = [
 
 function showTable() {
     return (
-
         <Table>
             <Table.Header>
                 <Table.Row>
@@ -77,32 +78,34 @@ export default class HomePage extends Component {
 
     render() {
         return (
-            <Segment>
-                <Grid columns={16} className="center aligned">
-                    <Grid.Column width={10}>
-                        <Segment style={{backgroundColor: "ghostWhite"}} className="center aligned">
-                            <Header>
-                                خبر ها
-                            </Header>
-                            <Select placeholder='ورزش ها ...' options={this.props.matchFilters}/>
-                            <br/>
-                            <br/>
-                            <Tab panes={panes}/>
-                        </Segment>
-                    </Grid.Column>
-                    <Grid.Column width={5}>
-                        <Segment style={{backgroundColor: "ghostWhite"}} className="center aligned">
-                            <Header>
-                                بازی ها
-                            </Header>
-                            <Select placeholder='ورزش ها ...' options={this.props.matchFilters}/>
-                            <br/>
-                            <br/>
-                            <Tab panes={matchPanes}/>
-                        </Segment>
-                    </Grid.Column>
-                </Grid>
-            </Segment>
+            <div className='main-home'>
+                <Segment>
+                    <Grid columns={16} className="center aligned">
+                        <Grid.Column width={10}>
+                            <Segment style={{backgroundColor: "ghostWhite"}} className="center aligned">
+                                <Header>
+                                    خبر ها
+                                </Header>
+                                <Select placeholder='ورزش ها ...' options={this.props.matchFilters}/>
+                                <br/>
+                                <br/>
+                                <Tab panes={panes}/>
+                            </Segment>
+                        </Grid.Column>
+                        <Grid.Column width={5}>
+                            <Segment style={{backgroundColor: "ghostWhite"}} className="center aligned">
+                                <Header>
+                                    بازی ها
+                                </Header>
+                                <Select placeholder='ورزش ها ...' options={this.props.matchFilters}/>
+                                <br/>
+                                <br/>
+                                <Tab panes={matchPanes}/>
+                            </Segment>
+                        </Grid.Column>
+                    </Grid>
+                </Segment>
+            </div>
         );
     };
 

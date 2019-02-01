@@ -1,0 +1,13 @@
+.main-news{
+    margin: 2%;
+}
+
+.main-news input{
+    overflow-y: auto;
+    height: 100px;
+}
+.main-news .ui.form{
+    padding-right: 2%;
+    margin-bottom: 2%;
+}
+

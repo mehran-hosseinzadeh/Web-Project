@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import NewsComment from "./NewsComment";
-import {Comment, Header} from 'semantic-ui-react';
+import {Button, Checkbox, Comment, Divider, Form, Header, TextArea} from 'semantic-ui-react';
 import './NewsCommentSection.css'
 
 class NewsCommentSection extends Component {
@@ -28,7 +28,7 @@ class NewsCommentSection extends Component {
                 <div className='newsComment'>
                     <NewsComment key={index} author={comment.author} avatar={comment.avatar} date={comment.date}
                                  text={comment.text}/>
-                    <hr className='newsDivider'/>
+                    <Divider></Divider>
                 </div>
             )
         });
@@ -42,6 +42,11 @@ class NewsCommentSection extends Component {
                             نظرات
                         </Header>
                     {this.showComments()}
+                    <Form>
+                        <Form.Field control={TextArea} label = "نظر شما" placeHolder = 'نظر خود را وارد کنید'>
+                        </Form.Field>
+                        <Button type='submit'>ثبت نظر</Button>
+                    </Form>
                 </Comment.Group>
             </div>
         )

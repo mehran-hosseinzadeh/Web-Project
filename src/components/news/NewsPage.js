@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import NewsHeading from "./NewsHeading";
 import NewsBody from "./NewsBody";
 import NewsCommentSection from "./NewsCommentSection";
+import './NewsPage.css'
 
 class NewsPage extends Component{
     render() {

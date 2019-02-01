@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import "./PageHeader.css"
-import {Input, Menu} from 'semantic-ui-react'
+import {Input, Menu } from 'semantic-ui-react'
 
 const colorsB = ['blue', 'violet', 'purple', 'pink', 'brown'];
 
@@ -20,17 +20,9 @@ export default class PageHeader extends Component {
 
     handleItemClick = (e, { name }) => this.setState({ active: name });
 
-    // static defaultProps = {
-    //     optionsItem: [
-    //         "خانه",
-    //         "بسکتبال",
-    //         "فوتبال",
-    //         "سایر اخبار",],
-    // };
-
     render() {
         return (
-            <div style={{direction: "ltr"}}>
+            <div style={{direction: "rtl"}}>
                 <div className="pageHeader">
                     <img className="pageLogo" src = {"pageLogo.png"} alt = "page logo"/>
                 </div>
@@ -44,18 +36,18 @@ export default class PageHeader extends Component {
                             onClick={this.handleItemClick}
                         />
                     ))}
-
-                    <Menu.Menu position='right'>
-                        <Menu.Item style={{minWidth: "400px"}}>
-                            <Input icon="search" placeholder='...جست و جو'  />
-                        </Menu.Item>
+                    <Menu.Menu>
                         <Menu.Item
                             name='خروج'
                             active={this.state.active === 'logout'}
                             color = "blue"
                             onClick={this.handleItemClick}
                         />
+                        <Menu.Item style={{minWidth: "400px"}}>
+                            <Input icon='search' placeholder='...جست و جو'  />
+                        </Menu.Item>
                     </Menu.Menu>
+
                 </Menu>
             </div>
         );
