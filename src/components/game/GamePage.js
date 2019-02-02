@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Grid} from "semantic-ui-react";
+import {Grid, Segment} from "semantic-ui-react";
 import './GamePage.css'
 import Stats from "./Stats";
 import Formations from "./Formations";
@@ -11,7 +11,7 @@ import Media from "./Media";
 class GamePage extends Component {
     render() {
         return (
-            <div className='main-game'>
+            <Segment className='main-game'>
                 <Report/>
                 <Grid>
                     <Grid.Column width={3}>
@@ -39,7 +39,7 @@ class GamePage extends Component {
                         <Highlights/>
                     </Grid.Column>
                 </Grid>
-            </div>
+            </Segment>
         )
     }
 }

@@ -9,7 +9,9 @@ import NewsPage from "./components/news/NewsPage";
 import GamePage from "./components/game/GamePage";
 import PlayerPage from "./components/player/PlayerPage";
 import PageHeader from "./components/home_page/PageHeader";
-import {Grid} from "semantic-ui-react";
+import {Grid, Header} from "semantic-ui-react";
+import LoginPage from "./components/login/LoginPage";
+import ForgetPasswordPage from "./components/login/ForgetPasswordPage";
 
 
 class App extends Component {
@@ -26,6 +28,8 @@ class App extends Component {
                             <Route path="/news" component={News}/>
                             <Route path="/game" component={Game}/>
                             <Route path="/player" component={Player}/>
+                            <Route path="/login" component={Login}/>
+                            <Route path="/forget-password" component={ForgetPassword}/>
                         </Grid.Column>
                     </Grid>
 
@@ -36,11 +40,13 @@ class App extends Component {
 
 }
 
+const Login = () => <LoginPage/>;
 const Home = () => <HomePage/>;
 const League = () => <LeaguePage/>;
 const Team = () => <TeamPage/>;
 const News = () => <NewsPage/>;
 const Game = () => <GamePage/>;
 const Player = () => <PlayerPage/>;
+const ForgetPassword = () => <ForgetPasswordPage/>;
 
 export default App;

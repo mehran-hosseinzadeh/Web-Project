@@ -3,15 +3,16 @@ import NewsHeading from "./NewsHeading";
 import NewsBody from "./NewsBody";
 import NewsCommentSection from "./NewsCommentSection";
 import './NewsPage.css'
+import {Segment} from "semantic-ui-react";
 
 class NewsPage extends Component{
     render() {
         return (
-            <div className='main-news'>
+            <Segment>
                 <NewsHeading newsTitle={this.props.newsTitle} newsDate = {this.props.newsDate} newsSource={this.props.newsSource}/>
                 <NewsBody newsBody = {this.props.newsBody}/>
                 <NewsCommentSection/>
-            </div>
+            </Segment>
         );
     }
 }
