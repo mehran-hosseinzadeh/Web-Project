@@ -7,7 +7,8 @@ import {Segment} from "semantic-ui-react";
 
 class NewsPage extends Component{
     static defaultProps = {
-        news_id: 1
+        match: "",
+        news_id: 1,
     };
 
     state = {

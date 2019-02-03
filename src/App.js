@@ -44,7 +44,7 @@ class App extends Component {
 const Home = () => <HomePage/>;
 const League = ({match}) => <LeaguePage match={match}/>;
 const Team = () => <TeamPage/>;
-const News = () => <NewsPage/>;
+const News = ({match}) => <NewsPage match={match}/>;
 const Game = () => <GamePage/>;
 const Player = () => <PlayerPage/>;
 const Login = () => <LoginPage/>;
