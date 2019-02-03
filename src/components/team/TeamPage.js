@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Divider, Grid, Header, Image, Segment, Select, Table} from "semantic-ui-react";
+import {Button, Divider, Grid, Header, Image, Segment, Select, Table} from "semantic-ui-react";
 import Icon from "semantic-ui-react/dist/commonjs/elements/Icon/Icon";
 import RelatedNews from "./RelatedNews";
 
@@ -68,23 +68,27 @@ export default class TeamPage extends Component {
             {rival: "ذوب آهن", result: " برد", scores: "3 - 1", date: "1397/11/22"},
         ]
     };
+
     render() {
         return (
             <div className='main-team'>
-            <Segment centered>
-                <Image
-                    className="row"
-                    centered
-                    src="https://static.farakav.com/files/pictures/01322974.jpeg"
-                    alt="لوگو استقلال"/>
+                <Segment centered>
+                    <Image
+                        className="row"
+                        centered
+                        src="https://static.farakav.com/files/pictures/01322974.jpeg"
+                        alt="لوگو استقلال"/>
 
-                <Header as='h1' Image centered className="center aligned">
-                    <Image src="https://static.farakav.com/files/pictures/01150467.png"/>
-                    <br/>
-                    استقلال تهران
-                    <Header.Subheader>تیم آبی پایتخت</Header.Subheader>
-                </Header>
-            </Segment>
+                    <Header as='h1' Image centered className="center aligned">
+                        <Image src="https://static.farakav.com/files/pictures/01150467.png"/>
+                        <br/>
+                        استقلال تهران
+                        <Header.Subheader>تیم آبی پایتخت</Header.Subheader>
+                    </Header>
+                    <Button positive centered className="center aligned">
+                        دنبال کردن تیم
+                    </Button>
+                </Segment>
                 <Segment>
                     <Grid columns={16} divided>
                         <Grid.Row stretched>
@@ -176,15 +180,15 @@ export default class TeamPage extends Component {
         )
     }
 
-    handleChange = (e, { value }) => {
-        this.setState({ value });
-        if (value === "همه"){
+    handleChange = (e, {value}) => {
+        this.setState({value});
+        if (value === "همه") {
             filterTeamMember = this.props.teamMember
         }
         else {
             filterTeamMember = [];
             this.props.teamMember.forEach((data) => {
-                if (data.post === value){
+                if (data.post === value) {
                     filterTeamMember.push(data)
                 }
             })

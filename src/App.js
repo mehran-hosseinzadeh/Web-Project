@@ -40,13 +40,13 @@ class App extends Component {
 
 }
 
-const Login = () => <LoginPage/>;
 const Home = () => <HomePage/>;
-const League = () => <LeaguePage/>;
+const League = ({match}) => <LeaguePage match={match}/>;
 const Team = () => <TeamPage/>;
 const News = () => <NewsPage/>;
 const Game = () => <GamePage/>;
 const Player = () => <PlayerPage/>;
+const Login = () => <LoginPage/>;
 const ForgetPassword = () => <ForgetPasswordPage/>;
 
 export default App;
