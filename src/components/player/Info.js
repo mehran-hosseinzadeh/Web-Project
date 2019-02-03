@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Grid, Item, Label} from 'semantic-ui-react';
 import './Info.css'
 import myConstants from "../../myConstants";
+import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 
 class Info extends Component {
     state = {
@@ -52,7 +53,9 @@ class Info extends Component {
                                 <Item.Header as='h1'>{this.state.player.name}</Item.Header>
                                 <Item.Meta>
                                     <span className='playerPost'>{this.state.player.post} </span>
-                                    <span className='playerTeam'>{this.state.team_name}</span>
+                                    <Link to={"/team/" + this.state.player.team}>
+                                        <span className='playerTeam'>{this.state.team_name}</span>
+                                    </Link>
                                     <ul className='personalInfo'>
                                         <li className='playerNationality'>ملیت: {this.state.player.nationality}</li>
                                         <li className='playerAge'>سن: {this.state.player.age}</li>

@@ -8,6 +8,7 @@ export default class TeamPage extends Component {
     state = {
         team_data: {},
         team_members: [],
+        filter_team_members: [],
         team_games: [],
         team_related_news: []
     };
@@ -242,19 +243,20 @@ export default class TeamPage extends Component {
         let filterTeamMember = this.state.team_members;
         this.setState({value});
         if (value === "همه") {
-            filterTeamMember = this.props.teamMember
+            filterTeamMember = this.state.team_members
         } else {
             filterTeamMember = [];
-            this.props.teamMember.forEach((data) => {
+            this.state.team_members.forEach((data) => {
                 if (data.post === value) {
                     filterTeamMember.push(data)
                 }
             })
         }
+        this.state.filter_team_members = filterTeamMember
     };
 
     showTeamMemberTable() {
-        let filterTeamMember = this.state.team_members;
+        let filterTeamMember = this.state.filter_team_members;
         return (
             [
                 <Header as='h3' className="center aligned">
