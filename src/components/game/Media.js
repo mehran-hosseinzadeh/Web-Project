@@ -30,10 +30,10 @@ class Media extends Component {
             return (
                 <div className='gameVideo'>
                     <h3>
-                        {video.videoTitle}
+                        {video.title}
                     </h3>
                     <video width="100%" controls key={index}>
-                        <source src={video.videoAddress} type="video/mp4"/>
+                        <source src={video.media_url} type="video/mp4"/>
                         Your browser does not support the video tag.
                     </video>
                     <hr/>
@@ -47,9 +47,9 @@ class Media extends Component {
             return (
                 <div className='gameImage'>
                     <h3>
-                        {image.imageTitle}
+                        {image.title}
                     </h3>
-                    <Image src={image.imageAddress} rounded key={index}/>
+                    <Image src={image.media_url} rounded key={index}/>
                     <Divider/>
                 </div>
             )

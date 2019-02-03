@@ -63,31 +63,33 @@ class Highlights extends Component {
 
     showTimeline() {
         return this.props.highlights.map((highlight, index) => {
-            const direction = (highlight.team % 2 === 0) ? 'right' : 'left';
-            const description = (highlight.description === 'گل')
-                ? 'پاس گل توسط ' + highlight.passer :
-                (highlight.description === 'تعویض') ? highlight.playerOut :
-                    (highlight.description === 'پنالتی') ? highlight.status :
-                        '';
+            const direction = (highlight.team  === this.props.teams[0]) ? 'right' : 'left';
+            const description = highlight.extra_data;
+            // const description = (highlight.description === 'گل')
+            //     ? 'پاس گل توسط ' + highlight.passer :
+            //     (highlight.description === 'تعویض') ? highlight.playerOut :
+            //         (highlight.description === 'پنالتی') ? highlight.status :
+            //             '';
             const tag = (highlight.description === 'کارت')
-                ? 'کارت ' + highlight.color :
+                ? 'کارت ' + highlight.extra_data :
                 highlight.description;
             const color = (highlight.description === 'گل')
                 ? 'green' :
                 (highlight.description === 'کارت')
-                    ? ((highlight.color === 'زرد') ? 'yellow' : 'red') :
+                    ? ((highlight.extra_data === 'زرد') ? 'yellow' : 'red') :
                     (highlight.description === 'پنالتی') ? 'blue'
                         : (highlight.description === 'تعویض') ? 'orange'
                         : '';
-            const title = (highlight.description === 'گل')
-                ? highlight.byPlayer :
-                (highlight.description === 'کارت')
-                    ? highlight.toPlayer :
-                    (highlight.description === 'تعویض')
-                        ? highlight.playerIn :
-                        (highlight.description === 'پنالتی')
-                            ? highlight.byPlayer :
-                            '';
+            const title = highlight.player;
+            // const title = (highlight.description === 'گل')
+            //     ? highlight.byPlayer :
+            //     (highlight.description === 'کارت')
+            //         ? highlight.toPlayer :
+            //         (highlight.description === 'تعویض')
+            //             ? highlight.playerIn :
+            //             (highlight.description === 'پنالتی')
+            //                 ? highlight.byPlayer :
+            //                 '';
             return (
                 <Timeline
                     key={index}

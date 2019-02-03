@@ -8,16 +8,16 @@ class RelatedNews extends Component {
     static defaultProps = {
         allNews: [
             {
-                newsImage: 'camels.jpg',
-                newsBody: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.',
-                newsTitle: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.',
-                newsDate: '1397/9/16',
+                news_avatar: 'camels.jpg',
+                news_body: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.',
+                news_title: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.',
+                news_date: '1397/9/16',
             },
             {
-                newsImage: 'camels.jpg',
-                newsBody: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.',
-                newsTitle: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.',
-                newsDate: '1397/9/16',
+                newsI_avatar: 'camels.jpg',
+                news_body: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.',
+                news_title: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.',
+                news_date: '1397/9/16',
             },
         ]
     };
@@ -28,16 +28,16 @@ class RelatedNews extends Component {
                 <li className={'news' + index}>
                     <Grid>
                         <Grid.Column width={2}>
-                            <Image src={news.newsImage} rounded/>
+                            <Image src={news.news_avatar} rounded/>
                         </Grid.Column>
                         <Grid.Column width={4}>
                             <Header as='h4'>
-                                {news.newsTitle}
-                                <Header.Subheader>{news.newsDate}</Header.Subheader>
+                                {news.news_title}
+                                <Header.Subheader>{news.news_date}</Header.Subheader>
                             </Header>
                             <Container>
                                 <p className='relatedNewsBody'>
-                                    {news.newsBody}
+                                    {news.news_body}
                                 </p>
                             </Container>
                         </Grid.Column>
@@ -51,9 +51,9 @@ class RelatedNews extends Component {
         return (
             <ul className='playerRelatedNews'>
                 <h1>
-                    اخبار مرتبط:
+                    اخبار مرتبط بر حسب:
                 </h1>
-                {this.showAllNews()};
+                {this.showAllNews()}
             </ul>
         )
     }

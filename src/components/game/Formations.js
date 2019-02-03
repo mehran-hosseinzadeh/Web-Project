@@ -181,11 +181,12 @@ class Formations extends Component {
     };
 
     static showFormations(formation, index) {
+        console.log(formation);
         return formation[index].map((player) => {
             return (
                 <Table.Row>
                     <Table.Cell>{player.name}</Table.Cell>
-                    <Table.Cell>{player.number}</Table.Cell>
+                    {/*<Table.Cell>{player.number}</Table.Cell>*/}
                     <Table.Cell>{player.post}</Table.Cell>
                 </Table.Row>
             )
@@ -202,7 +203,7 @@ class Formations extends Component {
                     <Table.Header>
                         <Table.Row>
                             <Table.HeaderCell>نام</Table.HeaderCell>
-                            <Table.HeaderCell>شماره</Table.HeaderCell>
+                            {/*<Table.HeaderCell>شماره</Table.HeaderCell>*/}
                             <Table.HeaderCell>پست</Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
@@ -217,16 +218,16 @@ class Formations extends Component {
                             <Table.Cell/>
                         </Table.Row>
                         {Formations.showFormations(this.props.mainFormations, this.props.teamIndex)}
-                        <Table.Row>
-                            <Table.Cell/>
-                            <Table.Cell>
-                                <h3>
-                                    ترکیب ذخیره
-                                </h3>
-                            </Table.Cell>
-                            <Table.Cell/>
-                        </Table.Row>
-                        {Formations.showFormations(this.props.benchFormations, this.props.teamIndex)}
+                        {/*<Table.Row>*/}
+                            {/*<Table.Cell/>*/}
+                            {/*<Table.Cell>*/}
+                                {/*<h3>*/}
+                                    {/*ترکیب ذخیره*/}
+                                {/*</h3>*/}
+                            {/*</Table.Cell>*/}
+                            {/*<Table.Cell/>*/}
+                        {/*</Table.Row>*/}
+                        {/*{Formations.showFormations(this.props.benchFormations, this.props.teamIndex)}*/}
                     </Table.Body>
                 </Table>
             </div>

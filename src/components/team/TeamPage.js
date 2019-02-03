@@ -4,8 +4,13 @@ import Icon from "semantic-ui-react/dist/commonjs/elements/Icon/Icon";
 import RelatedNews from "./RelatedNews";
 
 export default class TeamPage extends Component {
-
+    state = {
+        team_data: {},
+        team_members: [],
+        team_games: [],
+    };
     static defaultProps = {
+        team_id: 1,
         leagueTable: [
             {name: "سپاهان", point: "42", gamePlayed: "14", rank: "1"},
             {name: "ابومسلم", point: "40", gamePlayed: "14", rank: "2"},
@@ -69,26 +74,46 @@ export default class TeamPage extends Component {
         ]
     };
 
+    async componentDidMount() {
+        try {
+            const res = await fetch('http://127.0.0.1:8000/toopchi/teams/all_data/' + this.props.team_id);
+            const team_data = await res.json();
+            console.log(team_data);
+            const team_members = JSON.parse(team_data.team_members);
+            console.log(team_members);
+            const team_games = JSON.parse(team_data.team_games);
+            console.log(team_games);
+            this.setState({
+                team_data,
+                team_members,
+                team_games,
+            });
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+
     render() {
         return (
             <div className='main-team'>
-                <Segment centered>
-                    <Image
-                        className="row"
-                        centered
-                        src="https://static.farakav.com/files/pictures/01322974.jpeg"
-                        alt="لوگو استقلال"/>
+            <Segment centered>
+                <Image
+                    className="row"
+                    centered
+                    src={this.state.team_data.team_avatar}
+                    />
 
-                    <Header as='h1' Image centered className="center aligned">
-                        <Image src="https://static.farakav.com/files/pictures/01150467.png"/>
-                        <br/>
-                        استقلال تهران
-                        <Header.Subheader>تیم آبی پایتخت</Header.Subheader>
-                    </Header>
-                    <Button positive centered className="center aligned">
-                        دنبال کردن تیم
-                    </Button>
-                </Segment>
+                <Header as='h1' Image centered className="center aligned">
+                    <Image src={this.state.team_data.team_logo}/>
+                    <br/>
+                    {this.state.team_data.team_name}
+                    <Header.Subheader>{this.state.team_data.team_nickname}</Header.Subheader>
+                </Header>
+                <Button positive centered className="center aligned">
+                    دنبال کردن تیم
+                </Button>
+            </Segment>
                 <Segment>
                     <Grid columns={16} divided>
                         <Grid.Row stretched>
@@ -128,17 +153,17 @@ export default class TeamPage extends Component {
                             <Table.HeaderCell>حریف</Table.HeaderCell>
                             <Table.HeaderCell>نتیجه</Table.HeaderCell>
                             <Table.HeaderCell></Table.HeaderCell>
-                            <Table.HeaderCell> تاریخ </Table.HeaderCell>
+                            <Table.HeaderCell> هفته </Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
                     <Table.Body>
-                        {this.props.matches.map((data) => {
+                        {this.state.team_games.map((data) => {
                             return (
                                 <Table.Row>
                                     <Table.Cell>{data.rival}</Table.Cell>
+                                    <Table.Cell>{data.status}</Table.Cell>
                                     <Table.Cell>{data.result}</Table.Cell>
-                                    <Table.Cell>{data.scores}</Table.Cell>
-                                    <Table.Cell>{data.date}</Table.Cell>
+                                    <Table.Cell>{data.week}</Table.Cell>
                                 </Table.Row>
                             )
                         })}
@@ -180,15 +205,16 @@ export default class TeamPage extends Component {
         )
     }
 
-    handleChange = (e, {value}) => {
-        this.setState({value});
-        if (value === "همه") {
+    handleChange = (e, { value }) => {
+        let filterTeamMember = this.state.team_members;
+        this.setState({ value });
+        if (value === "همه"){
             filterTeamMember = this.props.teamMember
         }
         else {
             filterTeamMember = [];
             this.props.teamMember.forEach((data) => {
-                if (data.post === value) {
+                if (data.post === value){
                     filterTeamMember.push(data)
                 }
             })
@@ -196,6 +222,7 @@ export default class TeamPage extends Component {
     };
 
     showTeamMemberTable() {
+        let filterTeamMember = this.state.team_members;
         return (
             [
                 <Header as='h3' className="center aligned">
@@ -229,4 +256,4 @@ export default class TeamPage extends Component {
         )
     }
 }
-let filterTeamMember = TeamPage.defaultProps.teamMember;
+

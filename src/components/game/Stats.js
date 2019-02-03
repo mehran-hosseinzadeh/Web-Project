@@ -37,10 +37,7 @@ class Stats extends Component {
             }
             ,
         ],
-        playerOfMatch: {
-            name: 'سعید سعیدی',
-            team: 'استقلال',
-        },
+        playerOfMatch: '',
         teams: ['استقلال', 'پیکان'],
         exchanges: [
             {
@@ -68,9 +65,9 @@ class Stats extends Component {
         return this.props.stats.map((stat) => {
             return (
                 <Table.Row>
-                    <Table.Cell>{stat.label}</Table.Cell>
-                    <Table.Cell>{stat.team1}</Table.Cell>
-                    <Table.Cell>{stat.team2}</Table.Cell>
+                    <Table.Cell>{stat.description}</Table.Cell>
+                    <Table.Cell>{stat.first_team_data}</Table.Cell>
+                    <Table.Cell>{stat.second_team_data}</Table.Cell>
                 </Table.Row>
             )
         })
@@ -80,9 +77,9 @@ class Stats extends Component {
         return this.props.exchanges.map((exchange) => {
             return (
                 <Table.Row>
-                    <Table.Cell>{exchange.forTeam}</Table.Cell>
-                    <Table.Cell>{exchange.playerIn}</Table.Cell>
-                    <Table.Cell>{exchange.playerOut}</Table.Cell>
+                    <Table.Cell>{exchange.team}</Table.Cell>
+                    <Table.Cell>{exchange.in}</Table.Cell>
+                    <Table.Cell>{exchange.out}</Table.Cell>
                     <Table.Cell>{exchange.minute}</Table.Cell>
                 </Table.Row>
             )
@@ -111,7 +108,7 @@ class Stats extends Component {
                     <span className='playerOfMatchBox'>
                         بهترین بازیکن زمین:&nbsp;
                             <strong>
-                                {this.props.playerOfMatch.name} از {this.props.playerOfMatch.team}
+                                {this.props.playerOfMatch}
                             </strong>
                     </span>
                 </div>
