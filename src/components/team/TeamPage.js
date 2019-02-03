@@ -10,6 +10,7 @@ export default class TeamPage extends Component {
         team_games: [],
     };
     static defaultProps = {
+        match: "",
         team_id: 1,
         leagueTable: [
             {name: "سپاهان", point: "42", gamePlayed: "14", rank: "1"},
@@ -76,7 +77,7 @@ export default class TeamPage extends Component {
 
     async componentDidMount() {
         try {
-            const res = await fetch('http://127.0.0.1:8000/toopchi/teams/all_data/' + this.props.team_id);
+            const res = await fetch('http://127.0.0.1:8000/toopchi/teams/all_data/' + this.props.match.params.id);
             const team_data = await res.json();
             console.log(team_data);
             const team_members = JSON.parse(team_data.team_members);

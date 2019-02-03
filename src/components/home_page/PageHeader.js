@@ -10,7 +10,7 @@ export default class PageHeader extends Component {
     static defaultProps = {
         menuOptions: [
             {name: "خانه", color: "blue", url: "/"},
-            {name: "تیم", color: "violet", url: "/team"},
+            {name: "تیم", color: "violet", url: "/team/1"},
             {name: "خبر", color: "purple", url: "/news"},
             {name: "لیگ", color: "pink", url: "/league"},
             {name: "بازی", color: "brown", url: "/game"},

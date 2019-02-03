@@ -13,10 +13,6 @@ const tableData = [
     {gameNumber: 8, team1: "ذوب آهن", team2: "نفت آبادان", result: "1 - 2", team1Point: "2132", team2Point: "23"},
     {gameNumber: 9, team1: "فولاد", team2: "ذوب آهن", result: "1 - 1", team1Point: "2132", team2Point: "23"},
     {gameNumber: 10, team1: "فولاد", team2: "نفت آبادان", result: "0 - 0", team1Point: "2132", team2Point: "23"},
-    // { name: 'John', age: 15, gender: 'Male' },
-    // { name: 'Amber', age: 40, gender: 'Female' },
-    // { name: 'Leslie', age: 25, gender: 'Female' },
-    // { name: 'Ben', age: 70, gender: 'Male' },
 ];
 
 export default class LeagueTable extends Component {

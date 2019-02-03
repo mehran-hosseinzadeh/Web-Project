@@ -24,8 +24,7 @@ class App extends Component {
                         <Grid.Column width={16}>
                             <Route exact path="/" component={Home}/>
                             <Route path="/league" component={League}/>
-                            <Route path="/team" component={Team}/>
-                            <Route path="/news" component={News}/>
+                            <Route path="/team/:id" component={Team}/>
                             <Route path="/news/:id" component={News}/>
                             <Route path="/game" component={Game}/>
                             <Route path="/player" component={Player}/>
@@ -43,7 +42,7 @@ class App extends Component {
 
 const Home = () => <HomePage/>;
 const League = ({match}) => <LeaguePage match={match}/>;
-const Team = () => <TeamPage/>;
+const Team = ({match}) => <TeamPage match={match}/>;
 const News = ({match}) => <NewsPage match={match}/>;
 const Game = () => <GamePage/>;
 const Player = () => <PlayerPage/>;
