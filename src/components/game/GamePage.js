@@ -7,6 +7,7 @@ import Report from "./Report";
 import Highlights from "./Highlights";
 import RelatedNews from "./RelatedNews";
 import Media from "./Media";
+import myConstants from "../../myConstants";
 
 class GamePage extends Component {
     static defaultProps = {
@@ -24,8 +25,9 @@ class GamePage extends Component {
     };
 
     async componentDidMount() {
+        let ip = myConstants.get_ip();
         try {
-            const res = await fetch('http://127.0.0.1:8000/toopchi/games/' + this.props.game_id);
+            const res = await fetch('http://' + ip + ':8000/toopchi/games/' + this.props.game_id);
             const game_data = await res.json();
             const game_stats = JSON.parse(game_data.game_stats);
             const game_highlights = JSON.parse(game_data.highlights);

@@ -11,7 +11,7 @@ export default class PageHeader extends Component {
         menuOptions: [
             {name: "خانه", color: "blue", url: "/"},
             {name: "تیم", color: "violet", url: "/team/1"},
-            {name: "خبر", color: "purple", url: "/news"},
+            {name: "خبر", color: "purple", url: "/news/1"},
             {name: "لیگ", color: "pink", url: "/league"},
             {name: "بازی", color: "brown", url: "/game"},
             {name: "بازیکن", color: "red", url: "/player"},

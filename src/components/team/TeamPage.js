@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
-import {Button, Divider, Grid, Header, Image, Segment, Select, Table} from "semantic-ui-react";
+import {Button, Divider, Grid, Header, Image, Segment, Select, Tab, Table} from "semantic-ui-react";
 import Icon from "semantic-ui-react/dist/commonjs/elements/Icon/Icon";
 import RelatedNews from "./RelatedNews";
+import myConstants from "../../myConstants";
 
 export default class TeamPage extends Component {
     state = {
         team_data: {},
         team_members: [],
         team_games: [],
+        team_related_news: []
     };
     static defaultProps = {
         match: "",
@@ -77,7 +79,9 @@ export default class TeamPage extends Component {
 
     async componentDidMount() {
         try {
-            const res = await fetch('http://127.0.0.1:8000/toopchi/teams/all_data/' + this.props.match.params.id);
+            const ip = myConstants.get_ip();
+            console.log(ip);
+            const res = await fetch('http://' + ip + ':8000/toopchi/teams/all_data/' + this.props.match.params.id);
             const team_data = await res.json();
             console.log(team_data);
             const team_members = JSON.parse(team_data.team_members);
@@ -89,32 +93,58 @@ export default class TeamPage extends Component {
                 team_members,
                 team_games,
             });
+            let team_related_news = [];
+            let res2 = await fetch('http://' + ip + ':8000/toopchi/team/related_news/title/' + this.props.match.params.id);
+            let related_news = await res2.json();
+            team_related_news[0] = {'type': 'عنوان خبر', 'all_news': JSON.parse(related_news)};
+            res2 = await fetch('http://' + ip + ':8000/toopchi/team/related_news/body/' + this.props.match.params.id);
+            related_news = await res2.json();
+            team_related_news[1] = {'type': 'متن خبر', 'all_news': JSON.parse(related_news)};
+            res2 = await fetch('http://' + ip + ':8000/toopchi/team/related_news/tags/' + this.props.match.params.id);
+            related_news = await res2.json();
+            team_related_news[2] = {'type': 'برچسب های اخبار', 'all_news': JSON.parse(related_news)};
+            console.log(team_related_news);
+            this.setState({
+                team_related_news: team_related_news
+            })
         } catch (e) {
             console.log(e);
         }
+    }
+
+    makeTabs() {
+        return this.state.team_related_news.map((related_news, index) => {
+            return {
+                menuItem: related_news.type,
+                render: () =>
+                    <Tab.Pane attached={false}>
+                        <RelatedNews allNews={related_news.all_news}/>
+                    </Tab.Pane>
+            }
+        })
     }
 
 
     render() {
         return (
             <div className='main-team'>
-            <Segment centered>
-                <Image
-                    className="row"
-                    centered
-                    src={this.state.team_data.team_avatar}
+                <Segment centered>
+                    <Image
+                        className="row"
+                        centered
+                        src={this.state.team_data.team_avatar}
                     />
 
-                <Header as='h1' Image centered className="center aligned">
-                    <Image src={this.state.team_data.team_logo}/>
-                    <br/>
-                    {this.state.team_data.team_name}
-                    <Header.Subheader>{this.state.team_data.team_nickname}</Header.Subheader>
-                </Header>
-                <Button positive centered className="center aligned">
-                    دنبال کردن تیم
-                </Button>
-            </Segment>
+                    <Header as='h1' Image centered className="center aligned">
+                        <Image src={this.state.team_data.team_logo}/>
+                        <br/>
+                        {this.state.team_data.team_name}
+                        <Header.Subheader>{this.state.team_data.team_nickname}</Header.Subheader>
+                    </Header>
+                    <Button positive centered className="center aligned">
+                        دنبال کردن تیم
+                    </Button>
+                </Segment>
                 <Segment>
                     <Grid columns={16} divided>
                         <Grid.Row stretched>
@@ -125,7 +155,9 @@ export default class TeamPage extends Component {
                             </Grid.Column>
                             <Grid.Column width={9}>
                                 <Segment style={{backgroundColor: "ghostWhite"}}>
-                                    <RelatedNews/>
+                                    <span className='teamRelatedNews'>
+                                        <Tab menu={{vertical: true}} menuPosition='right' panes={this.makeTabs()}/>
+                                     </span>
                                 </Segment>
                             </Grid.Column>
                             <Grid.Column width={4}>
@@ -206,16 +238,15 @@ export default class TeamPage extends Component {
         )
     }
 
-    handleChange = (e, { value }) => {
+    handleChange = (e, {value}) => {
         let filterTeamMember = this.state.team_members;
-        this.setState({ value });
-        if (value === "همه"){
+        this.setState({value});
+        if (value === "همه") {
             filterTeamMember = this.props.teamMember
-        }
-        else {
+        } else {
             filterTeamMember = [];
             this.props.teamMember.forEach((data) => {
-                if (data.post === value){
+                if (data.post === value) {
                     filterTeamMember.push(data)
                 }
             })

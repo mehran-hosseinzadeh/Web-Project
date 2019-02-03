@@ -4,6 +4,7 @@ import Info from "./Info";
 import Stats from "./Stats";
 import RelatedNews from "./RelatedNews";
 import {Divider, Segment, Tab} from "semantic-ui-react";
+import myConstants from "../../myConstants";
 
 class PlayerPage extends Component{
 
@@ -15,14 +16,15 @@ class PlayerPage extends Component{
     };
 
     async componentDidMount(){
+        let ip = myConstants.get_ip();
         let player_related_news = [];
-        let res = await fetch('http://127.0.0.1:8000/toopchi/players/related_news/title/' + this.props.player_id);
+        let res = await fetch('http://' + ip + ':8000/toopchi/player/related_news/title/' + this.props.player_id);
         let related_news = await res.json();
         player_related_news[0] = {'type': 'عنوان خبر', 'all_news': JSON.parse(related_news)};
-        res = await fetch('http://127.0.0.1:8000/toopchi/players/related_news/body/' + this.props.player_id);
+        res = await fetch('http://' + ip + ':8000/toopchi/player/related_news/body/' + this.props.player_id);
         related_news = await res.json();
         player_related_news[1] = {'type': 'متن خبر', 'all_news': JSON.parse(related_news)};
-        res = await fetch('http://127.0.0.1:8000/toopchi/players/related_news/tags/' + this.props.player_id);
+        res = await fetch('http://' + ip + ':8000/toopchi/player/related_news/tags/' + this.props.player_id);
         related_news = await res.json();
         player_related_news[2] = {'type': 'برچسب های اخبار', 'all_news': JSON.parse(related_news)};
         console.log(player_related_news);
@@ -37,10 +39,7 @@ class PlayerPage extends Component{
                 menuItem: related_news.type,
                 render: () =>
                     <Tab.Pane attached={false}>
-                        <Segment>
-                            <RelatedNews allNews={related_news.all_news}/>
-                        </Segment>
-                        <Divider/>
+                        <RelatedNews allNews={related_news.all_news}/>
                     </Tab.Pane>
             }
         })

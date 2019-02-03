@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Tab} from 'semantic-ui-react';
 import './Stats.css'
+import myConstants from "../../myConstants";
 
 class Stats extends Component {
     state = {
@@ -29,12 +30,13 @@ class Stats extends Component {
     };
 
     async componentDidMount() {
+        let ip = myConstants.get_ip();
         try {
-            const res = await fetch('http://127.0.0.1:8000/toopchi/player');
+            const res = await fetch('http://' + ip + ':8000/toopchi/player');
             const players = await res.json();
             const player = players[0];
             console.log(player);
-            const res2 = await fetch('http://127.0.0.1:8000/toopchi/player_highlights/' + player.id);
+            const res2 = await fetch('http://' + ip + ':8000/toopchi/player_highlights/' + player.id);
             const tmp = await res2.json();
             const leagues = JSON.parse(tmp.leagues);
             const highlights = JSON.parse(tmp.highlights);

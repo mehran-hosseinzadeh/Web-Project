@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './RelatedNews.css'
-import {Container, Grid, Header, Image} from "semantic-ui-react";
+import {Container, Divider, Grid, Header, Image} from "semantic-ui-react";
 import {Link, Route} from "react-router-dom";
 
 
@@ -47,6 +47,7 @@ class RelatedNews extends Component {
                             </Grid.Column>
                         </Grid>
                     </li>
+                    <Divider/>
                 </Link>
             )
         })

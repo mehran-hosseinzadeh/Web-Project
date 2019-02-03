@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Grid, Item, Label} from 'semantic-ui-react';
 import './Info.css'
+import myConstants from "../../myConstants";
 
 class Info extends Component {
     state = {
@@ -20,11 +21,12 @@ class Info extends Component {
     };
 
     async componentDidMount() {
+        let ip = myConstants.get_ip();
         try {
-            const res = await fetch('http://127.0.0.1:8000/toopchi/player');
+            const res = await fetch('http://' + ip + ':8000/toopchi/player');
             const players = await res.json();
             const player = players[0];
-            const res2 = await fetch('http://127.0.0.1:8000/toopchi/teams/' + player.team);
+            const res2 = await fetch('http://' + ip + ':8000/toopchi/teams/' + player.team);
             const team = await res2.json();
             const team_name = team.team_name;
 
