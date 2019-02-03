@@ -3,7 +3,7 @@ import './PlayerPage.css'
 import Info from "./Info";
 import Stats from "./Stats";
 import RelatedNews from "./RelatedNews";
-import {Segment, Tab} from "semantic-ui-react";
+import {Divider, Segment, Tab} from "semantic-ui-react";
 
 class PlayerPage extends Component{
 
@@ -37,7 +37,10 @@ class PlayerPage extends Component{
                 menuItem: related_news.type,
                 render: () =>
                     <Tab.Pane attached={false}>
-                        <RelatedNews allNews={related_news.all_news}/>
+                        <Segment>
+                            <RelatedNews allNews={related_news.all_news}/>
+                        </Segment>
+                        <Divider/>
                     </Tab.Pane>
             }
         })
