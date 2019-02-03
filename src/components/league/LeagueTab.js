@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Tab} from 'semantic-ui-react'
+import {Grid, Segment, Tab} from 'semantic-ui-react'
 import LeagueTable from "./LeagueTable";
 import LeagueSeasonTable from "./LeagueSeasonTable";
 
@@ -18,8 +18,7 @@ const panes = [
     },
     {
         menuItem: 'لیگ برتر خلیج فارس', render: () => <Tab.Pane>
-            <LeagueTable/>
-            <LeagueSeasonTable/>
+
         </Tab.Pane>
     },
 ];
@@ -27,7 +26,16 @@ const panes = [
 export default class LeagueTab extends Component {
     render() {
         return (
-            <Tab menu={{fluid: true, vertical: true,}} panes={panes} style={{margin: "20px"}}/>
+            [
+                <Grid className="center aligned">
+                    <Grid.Column width={10} className="center aligned">
+                        <Segment>
+                            <LeagueTable/>
+                            <LeagueSeasonTable/>
+                        </Segment>
+                    </Grid.Column>
+                </Grid>
+            ]
         );
     }
 }
