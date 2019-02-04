@@ -23,11 +23,12 @@ class App extends Component {
                     <Grid>
                         <Grid.Column width={16}>
                             <Route exact path="/" component={Home}/>
+                            <Route path="/leagues" component={Leagues}/>
                             <Route path="/league" component={League}/>
                             <Route path="/team/:id" component={Team}/>
                             <Route path="/news/:id" component={News}/>
-                            <Route path="/game" component={Game}/>
-                            <Route path="/player" component={Player}/>
+                            <Route path="/game/:id" component={Game}/>
+                            <Route path="/player/:id" component={Player}/>
                             <Route path="/login" component={Login}/>
                             <Route path="/forget-password" component={ForgetPassword}/>
                         </Grid.Column>
@@ -41,11 +42,12 @@ class App extends Component {
 }
 
 const Home = () => <HomePage/>;
-const League = ({match}) => <LeaguePage match={match}/>;
+const Leagues = ({match}) => <LeaguePage match={match}/>;
+const League = ({match}) => <LeagueTab match={match}/>;
 const Team = ({match}) => <TeamPage match={match}/>;
 const News = ({match}) => <NewsPage match={match}/>;
-const Game = () => <GamePage/>;
-const Player = () => <PlayerPage/>;
+const Game = ({match}) => <GamePage match={match}/>;
+const Player = ({match}) => <PlayerPage match={match}/>;
 const Login = () => <LoginPage/>;
 const ForgetPassword = () => <ForgetPasswordPage/>;
 

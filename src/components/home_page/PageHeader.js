@@ -12,9 +12,9 @@ export default class PageHeader extends Component {
             {name: "خانه", color: "blue", url: "/"},
             {name: "تیم", color: "violet", url: "/team/1"},
             {name: "خبر", color: "purple", url: "/news/1"},
-            {name: "لیگ", color: "pink", url: "/league"},
-            {name: "بازی", color: "brown", url: "/game"},
-            {name: "بازیکن", color: "red", url: "/player"},
+            {name: "لیگ", color: "pink", url: "/leagues"},
+            {name: "بازی", color: "brown", url: "/game/1"},
+            {name: "بازیکن", color: "red", url: "/player/1"},
             {name: "ورود/ثبت نام", color: "orange", url: "/login"},
         ]
     };

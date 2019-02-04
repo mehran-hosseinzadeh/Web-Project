@@ -9,7 +9,8 @@ import myConstants from "../../myConstants";
 class PlayerPage extends Component{
 
     static defaultProps = {
-        player_id: 1
+        player_id: 1,
+        match: "",
     };
     state = {
         player_related_news:[]
@@ -18,13 +19,13 @@ class PlayerPage extends Component{
     async componentDidMount(){
         let ip = myConstants.get_ip();
         let player_related_news = [];
-        let res = await fetch('http://' + ip + ':8000/toopchi/player/related_news/title/' + this.props.player_id);
+        let res = await fetch('http://' + ip + ':8000/toopchi/player/related_news/title/' + this.props.match.params.id);
         let related_news = await res.json();
         player_related_news[0] = {'type': 'عنوان خبر', 'all_news': JSON.parse(related_news)};
-        res = await fetch('http://' + ip + ':8000/toopchi/player/related_news/body/' + this.props.player_id);
+        res = await fetch('http://' + ip + ':8000/toopchi/player/related_news/body/' + this.props.match.params.id);
         related_news = await res.json();
         player_related_news[1] = {'type': 'متن خبر', 'all_news': JSON.parse(related_news)};
-        res = await fetch('http://' + ip + ':8000/toopchi/player/related_news/tags/' + this.props.player_id);
+        res = await fetch('http://' + ip + ':8000/toopchi/player/related_news/tags/' + this.props.match.params.id);
         related_news = await res.json();
         player_related_news[2] = {'type': 'برچسب های اخبار', 'all_news': JSON.parse(related_news)};
         console.log(player_related_news);

@@ -32,12 +32,39 @@ class LeaguePage extends Component {
     render() {
         return (
             <div className='main-league'>
-                <Route path={`${this.props.match.path}/:id`} component={League}/>
-                <Route
-                    exact
-                    path={this.props.match.path}
-                    component={Leagues}
-                />
+                <Grid centered>
+                    <Grid.Column width={8}>
+                        <Segment className="center aligned">
+                            <Form unstackable>
+                                <Form.Group>
+                                    <Form.Input placeholder='نام لیگ'/>
+                                    <Button type='submit'>Submit</Button>
+                                </Form.Group>
+                            </Form>
+                            <Divider/>
+                            <Grid>
+                                <Grid.Row>
+                                    <Grid.Column width={8}>
+                                        <Segment className="center aligned">
+                                            <Header>
+                                                لیگ های جاری
+                                            </Header>
+                                            {currentLeagues()}
+                                        </Segment>
+                                    </Grid.Column>
+                                    <Grid.Column width={8}>
+                                        <Segment className="center aligned">
+                                            <Header>
+                                                لیگ های گذشته
+                                            </Header>
+                                            {pastLeagues()}
+                                        </Segment>
+                                    </Grid.Column>
+                                </Grid.Row>
+                            </Grid>
+                        </Segment>
+                    </Grid.Column>
+                </Grid>
             </div>
         )
     }
@@ -90,45 +117,6 @@ const pastLeagues = () => {
                 })}
             </Table.Body>
         </Table>
-    )
-};
-
-const League = () => <LeagueTab/>;
-const Leagues = () => {
-    return (
-        <Grid centered>
-            <Grid.Column width={8}>
-                <Segment className="center aligned">
-                    <Form unstackable>
-                        <Form.Group>
-                            <Form.Input placeholder='نام لیگ'/>
-                            <Button type='submit'>Submit</Button>
-                        </Form.Group>
-                    </Form>
-                    <Divider/>
-                    <Grid>
-                        <Grid.Row>
-                            <Grid.Column width={8}>
-                                <Segment className="center aligned">
-                                    <Header>
-                                        لیگ های جاری
-                                    </Header>
-                                    {currentLeagues()}
-                                </Segment>
-                            </Grid.Column>
-                            <Grid.Column width={8}>
-                                <Segment className="center aligned">
-                                    <Header>
-                                        لیگ های گذشته
-                                    </Header>
-                                    {pastLeagues()}
-                                </Segment>
-                            </Grid.Column>
-                        </Grid.Row>
-                    </Grid>
-                </Segment>
-            </Grid.Column>
-        </Grid>
     )
 };
 
