@@ -20,6 +20,10 @@ export default class LeagueSeasonTable extends Component {
         direction: null,
     };
 
+    static defaultProps = {
+        allGames: []
+    };
+
     handleSort = clickedColumn => () => {
         const { column, data, direction } = this.state;
 
@@ -37,7 +41,7 @@ export default class LeagueSeasonTable extends Component {
             data: data.reverse(),
             direction: direction === 'ascending' ? 'descending' : 'ascending',
         })
-    }
+    };
 
     render() {
         const { column, data, direction } = this.state;

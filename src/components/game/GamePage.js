@@ -22,7 +22,8 @@ class GamePage extends Component {
         game_highlights: [],
         game_exchanges: [],
         game_videos: [],
-        game_images: []
+        game_images: [],
+        game_related_news: []
     };
 
     async componentDidMount() {
@@ -46,7 +47,9 @@ class GamePage extends Component {
                 }
                 game_images.push(game_media[i])
             }
+            const game_related_news = JSON.parse(game_data.related_news);
             this.setState({
+                game_related_news,
                 game_data,
                 game_stats,
                 main_formations,
@@ -75,7 +78,7 @@ class GamePage extends Component {
                             <h1>
                                 اخبار مرتبط
                             </h1>
-                            <RelatedNews/>
+                            <RelatedNews allNews={this.state.game_related_news}/>
                             <h1>
                                 گالری
                             </h1>

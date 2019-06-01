@@ -24,7 +24,7 @@ class App extends Component {
                         <Grid.Column width={16}>
                             <Route exact path="/" component={Home}/>
                             <Route path="/leagues" component={Leagues}/>
-                            <Route path="/league" component={League}/>
+                            <Route path="/league/:id" component={League}/>
                             <Route path="/team/:id" component={Team}/>
                             <Route path="/news/:id" component={News}/>
                             <Route path="/game/:id" component={Game}/>

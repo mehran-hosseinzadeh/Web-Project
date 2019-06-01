@@ -2,9 +2,15 @@ import React, {Component} from 'react'
 import {Button, Divider, Form, Grid, Header, Segment, Table} from "semantic-ui-react";
 import LeagueTab from "./LeagueTab";
 import {Link, Route} from "react-router-dom";
+import myConstants from "../../myConstants";
 
 
 class LeaguePage extends Component {
+
+    state = {
+        all_current_leagues: [],
+        all_past_leagues: []
+    };
     static defaultProps = {
         match: "",
         currentLeague: [
@@ -29,96 +35,121 @@ class LeaguePage extends Component {
         ],
     };
 
+
+    async componentDidMount() {
+        const ip = myConstants.get_ip();
+        let res = await fetch('http://' + ip + ':8000/toopchi/all_leagues/current');
+        let all_current_leagues = await res.json();
+        all_current_leagues = JSON.parse(all_current_leagues);
+        res = await fetch('http://' + ip + ':8000/toopchi/all_leagues/past');
+        let all_past_leagues = await res.json();
+        all_past_leagues = JSON.parse(all_past_leagues);
+        this.setState({
+            all_current_leagues,
+            all_past_leagues
+        });
+
+    }
+
+    currentLeagues = () => {
+        console.log(this.state.all_current_leagues);
+        return (
+            <Table>
+                <Table.Header>
+                    <Table.Row>
+                        <Table.HeaderCell>
+                            نام لیگ ها
+                        </Table.HeaderCell>
+                    </Table.Row>
+                </Table.Header>
+                <Table.Body>
+                    {this.state.all_current_leagues.map((name, key) => {
+                        return (
+                            <Link to={"/league/" + name.league_id}>
+                                <Table.Row key={key}>
+                                    <Table.Cell>{name.league_name}</Table.Cell>
+                                </Table.Row>
+                            </Link>
+                        )
+                    })}
+                </Table.Body>
+            </Table>
+        )
+    };
+    pastLeagues = () => {
+        return (
+            <Table>
+                <Table.Header>
+                    <Table.Row>
+                        <Table.HeaderCell>
+                            نام لیگ ها
+                        </Table.HeaderCell>
+                    </Table.Row>
+                </Table.Header>
+                <Table.Body>
+                    {this.state.all_past_leagues.map((name, key) => {
+                        return (
+                            <Link to={"/league/" + name.league_id}>
+                                <Table.Row key={key}>
+                                    <Table.Cell>{name.league_name}</Table.Cell>
+                                </Table.Row>
+                            </Link>
+                        )
+                    })}
+                </Table.Body>
+            </Table>
+        )
+    };
+    Leagues = () => {
+        return (
+            <Grid centered>
+                <Grid.Column width={8}>
+                    <Segment className="center aligned">
+                        <Form unstackable>
+                            <Form.Group>
+                                <Form.Input placeholder='نام لیگ'/>
+                                <Button type='submit'>Submit</Button>
+                            </Form.Group>
+                        </Form>
+                        <Divider/>
+                        <Grid>
+                            <Grid.Row>
+                                <Grid.Column width={8}>
+                                    <Segment className="center aligned">
+                                        <Header>
+                                            لیگ های جاری
+                                        </Header>
+                                        {this.currentLeagues()}
+                                    </Segment>
+                                </Grid.Column>
+                                <Grid.Column width={8}>
+                                    <Segment className="center aligned">
+                                        <Header>
+                                            لیگ های گذشته
+                                        </Header>
+                                        {this.pastLeagues()}
+                                    </Segment>
+                                </Grid.Column>
+                            </Grid.Row>
+                        </Grid>
+                    </Segment>
+                </Grid.Column>
+            </Grid>
+        )
+    };
+
     render() {
+        console.log(this.props.match);
         return (
             <div className='main-league'>
-                <Grid centered>
-                    <Grid.Column width={8}>
-                        <Segment className="center aligned">
-                            <Form unstackable>
-                                <Form.Group>
-                                    <Form.Input placeholder='نام لیگ'/>
-                                    <Button type='submit'>Submit</Button>
-                                </Form.Group>
-                            </Form>
-                            <Divider/>
-                            <Grid>
-                                <Grid.Row>
-                                    <Grid.Column width={8}>
-                                        <Segment className="center aligned">
-                                            <Header>
-                                                لیگ های جاری
-                                            </Header>
-                                            {currentLeagues()}
-                                        </Segment>
-                                    </Grid.Column>
-                                    <Grid.Column width={8}>
-                                        <Segment className="center aligned">
-                                            <Header>
-                                                لیگ های گذشته
-                                            </Header>
-                                            {pastLeagues()}
-                                        </Segment>
-                                    </Grid.Column>
-                                </Grid.Row>
-                            </Grid>
-                        </Segment>
-                    </Grid.Column>
-                </Grid>
+                {this.Leagues()}
             </div>
         )
     }
 }
 
-const currentLeagues = () => {
-    return (
-        <Table>
-            <Table.Header>
-                <Table.Row>
-                    <Table.HeaderCell>
-                        نام لیگ ها
-                    </Table.HeaderCell>
-                </Table.Row>
-            </Table.Header>
-            <Table.Body>
-                {LeaguePage.defaultProps.currentLeague.map(({name, key}) => {
-                    return (
-                        <Link to={"/league/" + key}>
-                            <Table.Row key={key}>
-                                <Table.Cell>{name}</Table.Cell>
-                            </Table.Row>
-                        </Link>
-                    )
-                })}
-            </Table.Body>
-        </Table>
-    )
-};
 
-const pastLeagues = () => {
-    return (
-        <Table>
-            <Table.Header>
-                <Table.Row>
-                    <Table.HeaderCell>
-                        نام لیگ ها
-                    </Table.HeaderCell>
-                </Table.Row>
-            </Table.Header>
-            <Table.Body>
-                {LeaguePage.defaultProps.pastLeague.map(({name, key}) => {
-                    return (
-                        <Link to={"/league/" + key}>
-                            <Table.Row key={key}>
-                                <Table.Cell>{name}</Table.Cell>
-                            </Table.Row>
-                        </Link>
-                    )
-                })}
-            </Table.Body>
-        </Table>
-    )
-};
+const League = () => <LeagueTab/>;
 
 
 export default LeaguePage;

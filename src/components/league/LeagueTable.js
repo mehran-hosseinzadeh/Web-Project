@@ -3,24 +3,34 @@ import React, {Component} from 'react'
 import {Divider, Header, Image, Table} from 'semantic-ui-react'
 
 const tableData = [
-    {gameNumber: 1, team1: "استقلال", team2: "سپاهان", result: "2 - 1", team1Point: "43", team2Point: "23"},
-    {gameNumber: 2, team1: "استقلال", team2: "فولاد", result: "1 - 3", team1Point: "46", team2Point: "23"},
-    {gameNumber: 3, team1: "سپاهان", team2: "فولاد", result: "0 - 0", team1Point: "32", team2Point: "23"},
-    {gameNumber: 4, team1: "سپاهان", team2: "ذوب آهن", result: "4 - 1", team1Point: "28", team2Point: "23"},
-    {gameNumber: 5, team1: "نفت آبادان", team2: "استقلال", result: "1 - 1", team1Point: "37", team2Point: "23"},
-    {gameNumber: 6, team1: "نفت آبادان", team2: "سپاهان", result: "0 - 2", team1Point: "2132", team2Point: "23"},
-    {gameNumber: 7, team1: "ذوب آهن", team2: "استقلال", result: "2 - 2", team1Point: "2132", team2Point: "23"},
-    {gameNumber: 8, team1: "ذوب آهن", team2: "نفت آبادان", result: "1 - 2", team1Point: "2132", team2Point: "23"},
-    {gameNumber: 9, team1: "فولاد", team2: "ذوب آهن", result: "1 - 1", team1Point: "2132", team2Point: "23"},
-    {gameNumber: 10, team1: "فولاد", team2: "نفت آبادان", result: "0 - 0", team1Point: "2132", team2Point: "23"},
+    {game_id: 1, game_first_team: "استقلال", game_second_team: "سپاهان", game_result: "2 - 1", game_first_team_point: "43", game_second_team_point: "23"},
+    {game_id: 2, game_first_team: "استقلال", game_second_team: "فولاد", game_result: "1 - 3", game_first_team_point: "46", game_second_team_point: "23"},
+    {game_id: 3, game_first_team: "سپاهان", game_second_team: "فولاد", game_result: "0 - 0", game_first_team_point: "32", game_second_team_point: "23"},
+    {game_id: 4, game_first_team: "سپاهان", game_second_team: "ذوب آهن", game_result: "4 - 1", game_first_team_point: "28", game_second_team_point: "23"},
+    {game_id: 5, game_first_team: "نفت آبادان", game_second_team: "استقلال", game_result: "1 - 1", game_first_team_point: "37", game_second_team_point: "23"},
+    {game_id: 6, game_first_team: "نفت آبادان", game_second_team: "سپاهان", game_result: "0 - 2", game_first_team_point: "2132", game_second_team_point: "23"},
+    {game_id: 7, game_first_team: "ذوب آهن", game_second_team: "استقلال", game_result: "2 - 2", game_first_team_point: "2132", game_second_team_point: "23"},
+    {game_id: 8, game_first_team: "ذوب آهن", game_second_team: "نفت آبادان", game_result: "1 - 2", game_first_team_point: "2132", game_second_team_point: "23"},
+    {game_id: 9, game_first_team: "فولاد", game_second_team: "ذوب آهن", game_result: "1 - 1", game_first_team_point: "2132", game_second_team_point: "23"},
+    {game_id: 10, game_first_team: "فولاد", game_second_team: "نفت آبادان", game_result: "0 - 0", game_first_team_point: "2132", game_second_team_point: "23"},
 ];
 
 export default class LeagueTable extends Component {
+    static defaultProps = {
+        allGames: []
+    };
+
     state = {
         column: null,
-        data: tableData,
+        data: [],
         direction: null,
     };
+
+    async componentDidMount(){
+        this.setState({
+            data: this.props.allGames
+        });
+    }
 
     handleSort = clickedColumn => () => {
         const {column, data, direction} = this.state;
@@ -54,49 +64,49 @@ export default class LeagueTable extends Component {
                     <Table.Header>
                         <Table.Row>
                             <Table.HeaderCell
-                                sorted={column === 'gameNumber' ? direction : null}
-                                onClick={this.handleSort('gameNumber')}
+                                sorted={column === 'game_id' ? direction : null}
+                                onClick={this.handleSort('game_id')}
                             >
                                 Game Number
                             </Table.HeaderCell>
                             <Table.HeaderCell
-                                sorted={column === 'team1' ? direction : null}
-                                onClick={this.handleSort('team1')}
+                                sorted={column === 'game_first_team' ? direction : null}
+                                onClick={this.handleSort('game_first_team')}
                             >
                                 First Team
                             </Table.HeaderCell>
                             <Table.HeaderCell
-                                sorted={column === 'team2' ? direction : null}
-                                onClick={this.handleSort('team2')}
+                                sorted={column === 'game_second_team' ? direction : null}
+                                onClick={this.handleSort('game_second_team')}
                             >
                                 Second Team
                             </Table.HeaderCell>
                             <Table.HeaderCell
-                                sorted={column === 'result' ? direction : null}
+                                sorted={column === 'game_result' ? direction : null}
                             >
-                                Result
+                                game_result
                             </Table.HeaderCell>
                             <Table.HeaderCell
-                                sorted={column === 'team1Point' ? direction : null}
+                                sorted={column === 'game_first_team_point' ? direction : null}
                             >
                                 First Team Point
                             </Table.HeaderCell>
                             <Table.HeaderCell
-                                sorted={column === 'team2Point' ? direction : null}
+                                sorted={column === 'game_second_team_point' ? direction : null}
                             >
                                 Second Team Point
                             </Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
                     <Table.Body>
-                        {_.map(data, ({gameNumber, team1, team2, result, team1Point, team2Point}) => (
-                            <Table.Row key={gameNumber}>
-                                <Table.Cell>{gameNumber}</Table.Cell>
-                                <Table.Cell>{team1}</Table.Cell>
-                                <Table.Cell>{team2}</Table.Cell>
-                                <Table.Cell>{result}</Table.Cell>
-                                <Table.Cell>{team1Point}</Table.Cell>
-                                <Table.Cell>{team2Point}</Table.Cell>
+                        {_.map(data, ({game_id, game_first_team, game_second_team, game_result, game_first_team_point, game_second_team_point}) => (
+                            <Table.Row key={game_id}>
+                                <Table.Cell>{game_id}</Table.Cell>
+                                <Table.Cell>{game_first_team}</Table.Cell>
+                                <Table.Cell>{game_second_team}</Table.Cell>
+                                <Table.Cell>{game_result}</Table.Cell>
+                                <Table.Cell>{game_first_team_point}</Table.Cell>
+                                <Table.Cell>{game_second_team_point}</Table.Cell>
                             </Table.Row>
                         ))}
                     </Table.Body>

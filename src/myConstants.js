@@ -1,6 +1,6 @@
 class myConstants{
     static get_ip(){
-        return '81.31.175.25'
+        return '127.0.0.1'
     }
 }
 

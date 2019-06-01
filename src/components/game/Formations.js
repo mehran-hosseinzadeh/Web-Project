@@ -180,7 +180,7 @@ class Formations extends Component {
         teamIndex: 0,
     };
 
-    static showFormations(formation, index) {
+    showFormations(formation, index) {
         console.log(formation);
         return formation[index].map((player) => {
             return (
@@ -217,7 +217,7 @@ class Formations extends Component {
                             </Table.Cell>
                             <Table.Cell/>
                         </Table.Row>
-                        {Formations.showFormations(this.props.mainFormations, this.props.teamIndex)}
+                        {this.showFormations(this.props.mainFormations, this.props.teamIndex)}
                         {/*<Table.Row>*/}
                             {/*<Table.Cell/>*/}
                             {/*<Table.Cell>*/}

@@ -81,7 +81,6 @@ export default class TeamPage extends Component {
     async componentDidMount() {
         try {
             const ip = myConstants.get_ip();
-            console.log(ip);
             const res = await fetch('http://' + ip + ':8000/toopchi/teams/all_data/' + this.props.match.params.id);
             const team_data = await res.json();
             console.log(team_data);
